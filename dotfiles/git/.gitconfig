@@ -1,0 +1,35 @@
+[user]
+	name = Janine Müller
+	email = janine2.mueller@tu-dortmund.de
+
+[color]
+	ui = auto
+
+[core]
+	editor = sublime -n -w
+	excludesfile = ~/.gitignore_global
+
+[pull]
+	rebase = true
+
+[rebase]
+	stat = true
+
+[merge]
+	conflictstyle = diff3
+
+[log]
+	decorate=auto
+
+[format]
+	pretty  = fuller
+
+[alias]
+	s = status
+	c = commit
+	cm = commit -m
+	b = branch
+	ba = branch -a
+	co = checkout
+	# Thanks to ibab/dotfiles/.../.gitignore
+	lg = log --pretty=oneline --abbrev-commit --graph --decorate

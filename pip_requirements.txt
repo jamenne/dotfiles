@@ -1,0 +1,11 @@
+ipykernel
+ipython
+jupyter
+jupyter-contrib-nbextensions
+jupyter_nbextensions_configurator
+matplotlib
+numpy
+pandas
+scikit-learn
+scipy
+setuptools
