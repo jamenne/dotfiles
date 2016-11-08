@@ -48,6 +48,7 @@ cask 'telegram'
 cask 'vlc'
 cask 'xquartz'
 cask 'spotify'
+cask 'silverlight'
 
 # Quicklook plugins
 cask 'qlcolorcode'
