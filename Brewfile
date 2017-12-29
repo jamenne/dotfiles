@@ -9,7 +9,7 @@ tap 'homebrew/science'
 
 # Mount filesystems
 cask 'osxfuse'
-brew 'homebrew/fuse/sshfs'
+brew 'sshfs'
 
 # OSX Updates
 brew 'coreutils'        # GNU up-to-date coreutils
@@ -29,6 +29,7 @@ brew 'cmake'
 brew 'fontconfig'
 brew 'gcc' 
 brew 'pkg-config'
+brew 'pyenv'
 
 # Basics
 brew 'bash'       # Newest bash version
@@ -56,7 +57,6 @@ cask 'qlstephen'
 cask 'qlmarkdown'
 cask 'quicklook-json'
 cask 'quicklook-csv'
-cask 'betterzipql'
 cask 'qlimagesize'
 
 # Misc
@@ -69,7 +69,6 @@ brew 'git'
 brew 'glib'
 brew 'gnuplot'
 brew 'jpeg'
-brew 'libbson'
 brew 'libffi'
 brew 'libpng'
 brew 'libtiff'
@@ -83,4 +82,4 @@ brew 'readline'
 brew 'ruby'
 brew 'sqlite'
 brew 'webp'
-brew 'xz'
+Brew 'xz'
