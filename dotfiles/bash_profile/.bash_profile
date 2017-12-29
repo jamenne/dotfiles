@@ -19,10 +19,11 @@ fi
     export JAVA_HOME=$(/usr/libexec/java_home)
 
 # ROOT6
-	export ROOTSYS=${HOME}/root/v6.06.08/build/
-	source $ROOTSYS/bin/thisroot.sh
+	#export ROOTSYS=${HOME}/root/v6.06.08/build/
+	#source $ROOTSYS/bin/thisroot.sh
 
-
+# Init pyenv python version manager
+eval "$(pyenv init -)"
 
 #### Alias
 alias ls='ls -GFAh'
@@ -52,8 +53,3 @@ alias getinsitudata="rsync -avzu -e ssh e5hardware-cern:data ~/InsituIrrad/"
 alias insitudatatofhgfs="rsync -avz -e ssh ~/InsituIrrad/data/insitu/ klaus-wacker:/fhgfs/groups/e5/lhcb/detector/scifi/insitu-irrad/Data/"
 
 
-
-
-# added by Miniconda3 4.3.11 installer
-#export PATH="/Users/jmueller/miniconda3/bin:$PATH"
-alias useconda="export PATH=/Users/jmueller/miniconda3/bin:$PATH"
