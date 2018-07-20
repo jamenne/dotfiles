@@ -24,6 +24,11 @@ fi
 
 # Init pyenv python version manager
 eval "$(pyenv init -)"
+if which pyenv-virtualenv-init > /dev/null; then
+  eval "$(pyenv virtualenv-init -)"; 
+  export PYENV_VIRTUALENV_DISABLE_PROMPT=0
+fi
+
 
 #### Alias
 alias ls='ls -GFAh'
