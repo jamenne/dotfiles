@@ -1,11 +1,7 @@
 # Taps
-tap 'caskroom/cask'
-tap 'caskroom/versions'
-tap 'homebrew/dupes'
+tap 'homebrew/cask'
+tap 'homebrew/cask-versions'
 tap 'homebrew/core'
-tap 'homebrew/fuse'
-tap 'homebrew/completions'
-tap 'homebrew/science'
 
 # Mount filesystems
 cask 'osxfuse'
@@ -24,7 +20,6 @@ brew 'pip-completion'
 # Build Tools
 brew 'autoconf'
 brew 'automake'
-brew 'cctools'
 brew 'cmake'
 brew 'fontconfig'
 brew 'gcc' 

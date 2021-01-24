@@ -1,8 +1,8 @@
 # Script to setup, update and upgrade the homebrew python3
 # User folder is ~/Library/Python/3.* (autodetected with PY3VERSION)
 
-echo "  Upgrade and install packages from homebrew/pip_requirements.txt ..."
-pip3 install --upgrade --user -r "./homebrew/pip_requirements.txt"
+echo "  Upgrade and install packages from pip_requirements.txt ..."
+pip3 install --upgrade --user -r "pip_requirements.txt"
 
 echo "  Install ipython 3 kernel for ipython notebook ..."
 python3 -m pip install ipykernel --user

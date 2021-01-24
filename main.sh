@@ -31,10 +31,6 @@ echo "  Install brews via brew bundle from Brewfile ..."
 brew tap homebrew/bundle
 brew bundle -v
 
-echo "  Cleaning up brew binaries and cache to free disk space ..."
-brew cask cleanup
-rm -rf $(brew --cache)
-
 
 echo "-----------------------------------------------------------------------"
 echo ":: Stowing dotfiles to home folder ::"
