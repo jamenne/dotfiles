@@ -42,11 +42,10 @@ for d in `ls ./dotfiles`; do
 	stow --dir=dotfiles --target=${HOME} -v $d
 done  # Unstow with -vD option
 
-
 echo "-----------------------------------------------------------------------"
 echo ":: Setting up OSX python ::"
 chmod 744 ./python.sh
-./python.sh
+#./python.sh
 
 
 echo "-----------------------------------------------------------------------"

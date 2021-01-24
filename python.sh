@@ -1,28 +1,28 @@
-## Script to setup, update and upgrade the OSX system python
-## without polluting the system install location.
-# User folder is ~/Library/Python/2.7
+# Script to setup, update and upgrade the homebrew python3
+# User folder is ~/Library/Python/3.* (autodetected with PY3VERSION)
 
-echo "  Install pip in the user folder ~/Library/Python/2.7 ..."
-wget https://bootstrap.pypa.io/get-pip.py
-python get-pip.py --user
-rm get-pip.py
+echo "  Upgrade and install packages from homebrew/pip_requirements.txt ..."
+pip3 install --upgrade --user -r "./homebrew/pip_requirements.txt"
+
+echo "  Install ipython 3 kernel for ipython notebook ..."
+python3 -m pip install ipykernel --user
+python3 -m ipykernel install --user --display-name "Python 3 (Homebrew)"
+
+PY3VERSION=$(python3 -c "import sys; print('{}.{}'.format(*sys.version_info[:2]))")
 
 echo "  Create 'local.pth' in python user folder to prefer the user packages"
-echo "  over the systems ones. Check paths later with `$ python -m site` ..."
-echo "import sys; sys.path.insert(1,'${HOME}/Library/Python/2.7/lib/python/site-packages')" >> ${HOME}/Library/Python/2.7/lib/python/site-packages/local.pth
+echo "  over the systems ones. Check paths later with ` python -m site` ..."
+echo "import sys; sys.path.insert(1,'${HOME}/Library/Python/${PY3VERSION}/lib/python/site-packages')" >> ${HOME}/Library/Python/"$PY3VERSION"/lib/python/site-packages/local.pth
 
-echo "  Upgrade and install packages from pip_requirements.txt ..."
-pip install --upgrade --user -r "./pip_requirements.txt"
+echo "  Link 'jupyter-*' binaries in py3 user folder to 'jupyter3-*'."
+cd ${HOME}/Library/Python/"$PY3VERSION"/bin
+for j in ./jupyter*; do
+	ln -s $j "${j:0:9}3${j:9:100}";
+done
 
-echo "  Install ipython 2 kernel for ipython2 notebook ..."
-python -m pip install ipykernel --user
-python -m ipykernel install --user --display-name "Python 2 (OSX)"
-# http://ipython.readthedocs.io/en/stable/install/kernel_install.html
-
-echo "  Setup notebook extensions ..."
-jupyter-contrib-nbextension install --user
-# Enable extensions in tree section
-jupyter-nbextensions_configurator enable --user
-
-echo "  Make `python` link in py2 user folder to encapsulate the system python."
-ln -s /usr/bin/python ${HOME}/Library/Python/2.7/bin/python
+echo "  Make `python` link in py3 user folder for make scripts using `python`."
+# When python3 is the first python in the PATH, then `python`/`pip` should
+# consistenly point to `python3`/`pip` per default. This is set for py2 as well.
+ln -s /usr/local/bin/python3 ./python
+ln -s /usr/local/bin/pip3 ./pip
+cd -
